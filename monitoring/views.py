@@ -29,7 +29,8 @@ def health(request):
 def home(request):
     context = {
         "application_name": "Server Monitoring Application",
-        "message": "Welcome to the Server Monitoring Dashboard!"
+        "message": "Welcome to the Server Monitoring Dashboard!",
+        "servers": ["server-01", "server-02", "server-03"]
     }
     return render(request, "monitoring/index.html", context)
 
