@@ -1,5 +1,6 @@
 from django.db import connection
 from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
 from django.utils import timezone
 
 
@@ -24,3 +25,11 @@ def health(request):
         "database": database_status,
         "timestamp": timezone.now().isoformat()
     })
+
+def home(request):
+    context = {
+        "application_name": "Server Monitoring Application",
+        "message": "Welcome to the Server Monitoring Dashboard!"
+    }
+    return render(request, "monitoring/index.html", context)
+
