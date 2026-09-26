@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.utils import timezone
 
 
 # Create your views here.
@@ -10,7 +11,9 @@ def status(request):
     return HttpResponse("Server monitoring is running!")
 
 def health(request):
-    return JsonResponse(
-        {"status": "healthy",
-         "service": "server monitoring"
-         })
+    return JsonResponse({
+        "status": "healthy",
+        "service": "server monitoring",
+        "application": "Server Monitoring Application",
+        "timestamp": timezone.now().isoformat()
+    })
