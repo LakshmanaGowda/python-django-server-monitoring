@@ -11,7 +11,7 @@
     <h2>Servers</h2>
     <ul>
         {% for server in servers %}
-            <li>{{ server }}</li>
+            <li>{{ server.name }} - {{ server.status }}</li>
         {% endfor %}
     </ul>
 

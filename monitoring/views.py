@@ -30,7 +30,11 @@ def home(request):
     context = {
         "application_name": "Server Monitoring Application",
         "message": "Welcome to the Server Monitoring Dashboard!",
-        "servers": ["server-01", "server-02", "server-03"]
+        "servers": [
+            {"name": "server-01", "status": "healthy"},
+            {"name": "server-02", "status": "unhealthy"},
+            {"name": "server-03", "status": "healthy"}
+        ]
     }
     return render(request, "monitoring/index.html", context)
 
