@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Server Monitoring</title>
-</head>
-<body>
+{% extends "monitoring/base.html" %}
 
-    <h1>{{application_name}}</h1>
-    <p>{{message}}</p>
+{% block content %}
 
-    <h2>Servers</h2>
-    <ul>
-        {% for server in servers %}
-            <li>{{ server.name }} - {{ server.status }}</li>
-        {% endfor %}
-    </ul>
+<h1>{{ application_name }}</h1>
 
-</body>
-</html>
+<p>{{ message }}</p>
+
+<h2>Servers</h2>
+
+<ul>
+    {% for server in servers %}
+        <li>{{ server.name }} - {{ server.status }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
